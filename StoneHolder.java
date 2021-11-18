@@ -1,5 +1,4 @@
 import java.awt.*;
-import java.awt.geom.Ellipse2D;
 import java.awt.geom.Rectangle2D;
 
 public abstract class StoneHolder {
@@ -33,10 +32,13 @@ public abstract class StoneHolder {
             double tempX = iconWidth /(double) 5 + (i%2)* ((double)3*iconWidth/(double)5 - stoneWidth);
             double tempY = ( Math.floor(i/2) / Math.ceil( numStones /(double)2) )* (iconHeight - 2 * stoneWidth) + stoneWidth;
 
-            Ellipse2D.Double tempStone = new Ellipse2D.Double(tempX, tempY,stoneWidth,stoneWidth);
-            g2.fill(tempStone);
+            //Ellipse2D.Double tempStone = new Ellipse2D.Double(tempX, tempY,stoneWidth,stoneWidth);
+            StoneShape tempStone = myFormat.getShape().cloneAt(tempX,tempY);
+            //g2.fill(tempStone);
+            tempStone.fill(g2);
             g2.setColor(Color.RED);
-            g2.draw(tempStone);
+            //g2.draw(tempStone);
+            tempStone.draw(g2);
             g2.setColor(Color.BLACK);
         }
     }
