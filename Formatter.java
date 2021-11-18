@@ -6,19 +6,19 @@ import java.awt.*;
  */
 public class Formatter {
     private Color formatColor;
-    private Shape formatShape;
+    private StoneShape formatShape;
     private int stoneWidth;
 
-    public Formatter(Color c, Shape s,int w){
+    public Formatter(Color c, StoneShape s,int w){
         this.formatColor = c; this.formatShape = s; stoneWidth = w;
     }
 
     public void setColor(Color c){ formatColor = c; }
-    public void setFormatShape(Shape s){ formatShape = s; }
+    public void setFormatShape(StoneShape s){ formatShape = s; }
     public void setStoneWidth(int w){ stoneWidth = w; }
 
     public Color getColor(){ return formatColor; }
-    public Shape getShape(){ return formatShape; }
+    public StoneShape getShape(){ return formatShape; }
     public int getStoneWidth(){ return stoneWidth; }
 
 }
