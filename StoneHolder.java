@@ -1,3 +1,8 @@
+package View;
+
+import StoneDisplay.StoneShape;
+import View.Formatter;
+
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
 

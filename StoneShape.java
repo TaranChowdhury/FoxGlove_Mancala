@@ -1,3 +1,5 @@
+package StoneDisplay;
+
 import java.awt.*;
 
 public interface StoneShape {

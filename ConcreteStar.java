@@ -1,6 +1,8 @@
+package StoneDisplay;
+
 import java.awt.geom.Path2D;
 
-public class ConcreteStar extends CloneableShape{
+public class ConcreteStar extends CloneableShape {
 
 
     public ConcreteStar(int width, double x, double y) {

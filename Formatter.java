@@ -1,3 +1,7 @@
+package View;
+
+import StoneDisplay.StoneShape;
+
 import java.awt.*;
 
 /**

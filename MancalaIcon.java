@@ -1,3 +1,7 @@
+package View;
+
+import View.Formatter;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -13,7 +17,9 @@ public class MancalaIcon extends StoneHolder implements Icon{
         width = w; height = h; myFormat = f;
     }
 
-    public void setNumStones(int i){ numStones = i; }
+    public void setMyFormatter(Formatter newF){
+        myFormat = newF;
+    }
 
     @Override
     public void paintIcon(Component c, Graphics g, int x, int y) {

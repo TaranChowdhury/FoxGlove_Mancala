@@ -1,7 +1,9 @@
+package StoneDisplay;
+
 import java.awt.*;
 import java.awt.geom.Path2D;
 
-public abstract class CloneableShape implements StoneShape{
+public abstract class CloneableShape implements StoneShape {
     private Path2D.Double shapePath;
     private double xPos;
     private double yPos;

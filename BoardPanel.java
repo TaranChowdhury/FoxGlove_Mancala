@@ -1,3 +1,7 @@
+
+package View;
+import Model.DataModel;
+
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -5,7 +9,7 @@ import java.awt.*;
 import java.text.Normalizer;
 import java.util.ArrayList;
 
-public class BoardPanel extends JPanel implements ChangeListener {
+public class BoardPanel extends JPanel {
 
     private Formatter myFormat;
     private DataModel myData;
@@ -39,7 +43,7 @@ public class BoardPanel extends JPanel implements ChangeListener {
 
         for(int i = 0; i < 12; i++){
             //JButton tempHoleButton = new JButton(String.valueOf(i));
-            HoleButton tempHoleButton = new HoleButton(BOARD_WIDTH/8,BOARD_HEIGHT/2, myFormat);
+            HoleButton tempHoleButton = new HoleButton(BOARD_WIDTH/8,BOARD_HEIGHT/2, myFormat,myData, i,10);
             tempHoleButton.setNumStones(i);
             holePanel.add(tempHoleButton);
             myHoleButtons.add(tempHoleButton);
@@ -51,13 +55,4 @@ public class BoardPanel extends JPanel implements ChangeListener {
 
     }
 
-
-
-
-
-
-    @Override
-    public void stateChanged(ChangeEvent e) {
-
-    }
 }
