@@ -57,6 +57,9 @@ public class DataModel {
 
 		isStoneNumFrameVisible = false;
 		isStoneNumFrameClosed = false;
+
+		continueIsActive = false;
+		undoIsActive = false;
 	}
 
 	public void setSelectedFormat(Formatter sF) {
@@ -186,7 +189,69 @@ public class DataModel {
 	}
 
 	public void UserChoice(int index, int playerNum) {
+		distributeStones(index, playerNum);
+		message = "This is how the result would look. Would you like to continue? If not please undo.";
+		continueIsActive = true;
+		undoIsActive = false;
+		notifyListeners();
 
+	}
+
+	public void distributeStones(int index, int playerNum) {
+		if (playerNum == 1) {
+			int startingNumStones = player1.getHoleValue(index);
+			player1.setHoleValue(index, 0);
+			if (startingNumStones == 0) {
+				return;
+			}
+			while (startingNumStones != 0) {
+				for (int i = index + 1; i < 6; i++) {
+					player1.setHoleValue(i, player1.getHoleValue(i) + 1);
+					startingNumStones--;
+				}
+				if (startingNumStones != 0) {
+					player1.setMancalaValue(player1.getMancala() + 1);
+					startingNumStones--;
+				}
+				if (startingNumStones != 0) {
+					for (int i = 0; i < 6; i++) {
+						player2.setHoleValue(i, player2.getHoleValue(i) + 1);
+						startingNumStones--;
+					}
+				}
+				if (startingNumStones != 0) {
+					index = 0;
+				}
+
+			}
+
+		} else if (playerNum == 2) {
+			int startingNumStones = player2.getHoleValue(index);
+			player2.setHoleValue(index, 0);
+			if (startingNumStones == 0) {
+				return;
+			}
+			while (startingNumStones != 0) {
+				for (int i = index + 1; i < 6; i++) {
+					player2.setHoleValue(i, player2.getHoleValue(i) + 1);
+					startingNumStones--;
+				}
+				if (startingNumStones != 0) {
+					player2.setMancalaValue(player2.getMancala() + 1);
+					startingNumStones--;
+				}
+				if (startingNumStones != 0) {
+					for (int i = 0; i < 6; i++) {
+						player1.setHoleValue(i, player1.getHoleValue(i) + 1);
+						startingNumStones--;
+					}
+				}
+				if (startingNumStones != 0) {
+					index = 0;
+				}
+
+			}
+		}
 	}
 
 }
